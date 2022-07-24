@@ -1,3 +1,3 @@
 exports.config = {
-    env: process.env.NODE_ENV || 'development'
-}
+  env: process.env.NODE_ENV || "development",
+};

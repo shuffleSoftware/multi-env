@@ -1,10 +1,10 @@
-var express = require('express');
+var express = require("express");
 var router = express.Router();
 
-router.get('/', main)
+router.get("/", main);
 
-function main(req, res, next){
-    res.status(200).send({msg:'ok'})
+function main(req, res, next) {
+  res.status(200).send({ msg: "ok" });
 }
 
-module.exports = router
+module.exports = router;
