@@ -15,11 +15,12 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  codeScan:
+  lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Official SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v1.1.0
+    - name: Lint Action
+      uses: wearerequired/lint-action@v2.0.1
+
 
   # This workflow contains a single job called "build"
   # build:
