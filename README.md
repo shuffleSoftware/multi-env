@@ -22,8 +22,8 @@ https://expressjs.com/en/starter/generator.html
 
 - Getting the code 
     - action source
-- Static code analysis
-    - npm init @eslint/config
+- Code Scan
+    - sonarqube scan
 - Linting
 - Docker build
 - Docker push
