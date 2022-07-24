@@ -38,6 +38,8 @@ jobs:
           eslint: true
 
   build:
+    name: docker build && docker push
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout 
       uses: actions/checkout@v2
