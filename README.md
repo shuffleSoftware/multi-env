@@ -19,14 +19,12 @@ https://expressjs.com/en/starter/generator.html
 
 ## Steps
 
-- Getting the code
-  - action source
 - Lint
   - eslint
-  - prettier
-    - npx prettier --write .
-- Linting
-- Docker build
-- Docker push
+    - npx eslint . (during local development)
+- Docker build && docker push
 - Install image
 - Test endpoint /health (200)
+
+
+f74a6665-e621-4709-97fe-5331b8e10169
