@@ -4,9 +4,11 @@ module.exports = {
     commonjs: true,
     es2021: true,
   },
-  extends: ["google"],
+  extends: ['google'],
   parserOptions: {
-    ecmaVersion: "latest",
+    ecmaVersion: 'latest',
   },
-  rules: {},
+  rules: {
+    'new-cap': 0, // https://stackoverflow.com/questions/44477860/eslint-new-cap-error
+  },
 };

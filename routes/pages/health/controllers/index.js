@@ -1,10 +1,16 @@
-var express = require("express");
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-router.get("/", main);
+router.get('/', main);
 
+/**
+ * main route
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
 function main(req, res, next) {
-  res.status(200).send({ msg: "ok" });
+  res.status(200).send({msg: 'ok'});
 }
 
 module.exports = router;

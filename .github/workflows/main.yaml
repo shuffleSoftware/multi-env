@@ -36,7 +36,6 @@ jobs:
         uses: wearerequired/lint-action@v2
         with:
           eslint: true
-          prettier: true
 
   # This workflow contains a single job called "build"
   # build:

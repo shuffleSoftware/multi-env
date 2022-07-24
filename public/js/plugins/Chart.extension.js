@@ -3,14 +3,14 @@
 // Code from: https://codepen.io/jedtrow/full/ygRYgo
 //
 
-Chart.elements.Rectangle.prototype.draw = function () {
-  var ctx = this._chart.ctx;
-  var vm = this._view;
-  var left, right, top, bottom, signX, signY, borderSkipped, radius;
-  var borderWidth = vm.borderWidth;
+Chart.elements.Rectangle.prototype.draw = function() {
+  const ctx = this._chart.ctx;
+  const vm = this._view;
+  let left; let right; let top; let bottom; let signX; let signY; let borderSkipped; var radius;
+  let borderWidth = vm.borderWidth;
   // Set Radius Here
   // If radius is large enough to cause drawing errors a max radius is imposed
-  var cornerRadius = 6;
+  const cornerRadius = 6;
 
   if (!vm.horizontal) {
     // bar
@@ -20,7 +20,7 @@ Chart.elements.Rectangle.prototype.draw = function () {
     bottom = vm.base;
     signX = 1;
     signY = bottom > top ? 1 : -1;
-    borderSkipped = vm.borderSkipped || "bottom";
+    borderSkipped = vm.borderSkipped || 'bottom';
   } else {
     // horizontal bar
     left = vm.base;
@@ -29,23 +29,23 @@ Chart.elements.Rectangle.prototype.draw = function () {
     bottom = vm.y + vm.height / 2;
     signX = right > left ? 1 : -1;
     signY = 1;
-    borderSkipped = vm.borderSkipped || "left";
+    borderSkipped = vm.borderSkipped || 'left';
   }
 
   // Canvas doesn't allow us to stroke inside the width so we can
   // adjust the sizes to fit if we're setting a stroke on the line
   if (borderWidth) {
     // borderWidth shold be less than bar width and bar height.
-    var barSize = Math.min(Math.abs(left - right), Math.abs(top - bottom));
+    const barSize = Math.min(Math.abs(left - right), Math.abs(top - bottom));
     borderWidth = borderWidth > barSize ? barSize : borderWidth;
-    var halfStroke = borderWidth / 2;
+    const halfStroke = borderWidth / 2;
     // Adjust borderWidth when bar top position is near vm.base(zero).
-    var borderLeft = left + (borderSkipped !== "left" ? halfStroke * signX : 0);
-    var borderRight =
-      right + (borderSkipped !== "right" ? -halfStroke * signX : 0);
-    var borderTop = top + (borderSkipped !== "top" ? halfStroke * signY : 0);
-    var borderBottom =
-      bottom + (borderSkipped !== "bottom" ? -halfStroke * signY : 0);
+    const borderLeft = left + (borderSkipped !== 'left' ? halfStroke * signX : 0);
+    const borderRight =
+      right + (borderSkipped !== 'right' ? -halfStroke * signX : 0);
+    const borderTop = top + (borderSkipped !== 'top' ? halfStroke * signY : 0);
+    const borderBottom =
+      bottom + (borderSkipped !== 'bottom' ? -halfStroke * signY : 0);
     // not become a vertical line?
     if (borderLeft !== borderRight) {
       top = borderTop;
@@ -66,7 +66,7 @@ Chart.elements.Rectangle.prototype.draw = function () {
   // Corner points, from bottom-left to bottom-right clockwise
   // | 1 2 |
   // | 0 3 |
-  var corners = [
+  const corners = [
     [left, bottom],
     [left, top],
     [right, top],
@@ -74,8 +74,8 @@ Chart.elements.Rectangle.prototype.draw = function () {
   ];
 
   // Find first (starting) corner with fallback to 'bottom'
-  var borders = ["bottom", "left", "top", "right"];
-  var startCorner = borders.indexOf(borderSkipped, 0);
+  const borders = ['bottom', 'left', 'top', 'right'];
+  let startCorner = borders.indexOf(borderSkipped, 0);
   if (startCorner === -1) {
     startCorner = 0;
   }
@@ -85,10 +85,10 @@ Chart.elements.Rectangle.prototype.draw = function () {
   }
 
   // Draw rectangle from 'startCorner'
-  var corner = cornerAt(0);
+  let corner = cornerAt(0);
   ctx.moveTo(corner[0], corner[1]);
 
-  for (var i = 1; i < 4; i++) {
+  for (let i = 1; i < 4; i++) {
     corner = cornerAt(i);
     nextCornerId = i + 1;
     if (nextCornerId == 4) {
