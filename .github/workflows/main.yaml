@@ -60,7 +60,7 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/multi:$RELEASE_VERSION
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/multi:${{ env.RELEASE_VERSION }}
  
   # print-tag:
   #   runs-on: ubuntu-latest
