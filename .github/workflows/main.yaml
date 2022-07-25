@@ -82,19 +82,19 @@ jobs:
           APP_VERSION: ${{ env.RELEASE_VERSION }}
 
  
-  deploy-prod:
-    runs-on: ubuntu-latest
-    needs: ['build']
-    steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "desp-continuo-211131750-08" #Must be unique in Heroku
-          heroku_email: "shufflesoftware@gmail.com"
-          # healthcheck: "https://desp-continuo-211131750-08.herokuapp.com/health"
-        env:
-          NODE_ENV: "production"
-          NODE_PORT: 5000
-          APP_VERSION: ${{ env.RELEASE_VERSION }}
+  # deploy-prod:
+  #   runs-on: ubuntu-latest
+  #   needs: ['deploy-dev']
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+  #       with:
+  #         heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+  #         heroku_app_name: "desp-continuo-211131750-08" #Must be unique in Heroku
+  #         heroku_email: "shufflesoftware@gmail.com"
+  #         # healthcheck: "https://desp-continuo-211131750-08.herokuapp.com/health"
+  #       env:
+  #         NODE_ENV: "production"
+  #         NODE_PORT: 5000
+  #         APP_VERSION: ${{ env.RELEASE_VERSION }}
 
