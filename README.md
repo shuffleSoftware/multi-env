@@ -13,9 +13,10 @@ https://expressjs.com/en/starter/generator.html
 
 ### Running docker locally
 
-- docker build . -t shuffle/multi:latest
-- docker run -d -p 8350:5000 -e NODE_PORT=5000 shuffle/multi:latest
-  - localhost:8350
+- docker build . -t shuffle/multi:12345
+- docker run --name multi -d -p 8300:5000 -e NODE_PORT=5000 -e APP_VERSION=12345 shuffle/multi:12345 
+  - localhost:8300
+  - docker rm multi -f
 
 ## Steps
 
@@ -24,7 +25,8 @@ https://expressjs.com/en/starter/generator.html
     - npx eslint . (during local development)
 - Docker build && docker push
     - git tag -a v1.0.1 && git push origin v1.0.1
-- Generate install info in pull_request
+- Generate install info
+    - step 'helpful'
 - Install image
 - Test endpoint /health (200)
 

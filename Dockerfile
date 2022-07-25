@@ -14,6 +14,7 @@ RUN npm install
 
 
 ENV NODE_PORT=3000
+ENV APP_VERSION=1
 # Bundle app source
 COPY . .
 

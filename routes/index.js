@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const fs = require('fs');
+const { defaultConfiguration } = require('../app');
 
 fs.readdir(`${__dirname}/pages`, (err, folders) => {
   if (err) console.log(err);
@@ -19,6 +20,7 @@ router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Express',
     env: config.env,
+    app_version: config.app_version
   });
 });
 

@@ -12,6 +12,8 @@ router.get('/', main);
 function main(req, res, next) {
   res.render('pages/billing', {
     title: 'Billing',
+    env: config.env,
+    app_version: config.app_version
   });
 }
 
