@@ -30,3 +30,8 @@ https://expressjs.com/en/starter/generator.html
 - Install image in heroku
 - Test endpoint /health (200)
 
+
+
+#### Scenarios
+ - v1.0.10 muestra errores en eslint, corregidos en desarrollo
+ - v1.0.11 no permite entrar a /billing si no estas en prod env
