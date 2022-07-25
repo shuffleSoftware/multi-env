@@ -15,7 +15,6 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-
   testEndpoints:
     runs-on: ubuntu-latest
     steps:
@@ -23,19 +22,25 @@ jobs:
         uses: actions/checkout@v2
       - name: development
         run: |
-          ls
-
-# dev -> https://desp-continuo-211131750-08.herokuapp.com/health
-# prd -> https://prod-211131750-08.herokuapp.com/health
-# ENDPOINTS=('billing' 'health' 'icons' 'map' 'notifications' 'profile' 'rtl' 'sign-in' 'sign-up' 'tables' 'template' 'typography' 'virtual-reality')
-# for endpoint in "${ENDPOINTS[@]}"
-# do
-#   curl_status=`curl --silent --connect-timeout 8 --output /dev/null https://prod-211131750-08.herokuapp.com/$endpoint -I -w "%{http_code}\n"`
-#   echo "$endpoint got $curl_status"
-# done
-
-
-
-
-
-
+          for endpoint in $(ls ./routes/pages)
+          do
+            curl_status=`curl --silent --connect-timeout 8 --output /dev/null https://desp-continuo-211131750-08.herokuapp.com/$endpoint -I -w "%{http_code}\n"`
+            if test $curl_status -ne 200; then
+                echo "$curl_status - https://desp-continuo-211131750-08.herokuapp.com/$endpoint" 
+                exit 1
+            else
+                echo "$curl_status - https://desp-continuo-211131750-08.herokuapp.com/$endpoint"
+            fi
+          done
+      - name: production
+        run: |
+          for endpoint in $(ls ./routes/pages)
+          do
+            curl_status=`curl --silent --connect-timeout 8 --output /dev/null https://prod-211131750-08.herokuapp.com/$endpoint -I -w "%{http_code}\n"`
+            if test $curl_status -ne 200; then
+              echo "$curl_status - https://prod-211131750-08.herokuapp.com/$endpoint" 
+              exit 1
+            else
+              echo "$curl_status - https://prod-211131750-08.herokuapp.com/$endpoint"
+            fi
+          done
