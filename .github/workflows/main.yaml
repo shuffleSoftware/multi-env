@@ -40,7 +40,8 @@ jobs:
           eslint: true
 
   build:
-    name: docker build && docker push
+    if: startsWith(github.ref, 'refs/tags/v')
+    name: docker build
     runs-on: ubuntu-latest
     steps:
     - name: Checkout 
