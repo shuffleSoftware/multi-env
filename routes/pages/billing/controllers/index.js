@@ -10,6 +10,9 @@ router.get('/', main);
  * @param {*} next
  */
 function main(req, res, next) {
+  if (config.env != 'production') {
+    return res.status(403).send({msg: "Página solamente permitida en production"})
+  }
   res.render('pages/billing', {
     title: 'Billing',
     env: config.env,
