@@ -14,7 +14,7 @@ https://expressjs.com/en/starter/generator.html
 ### Running docker locally
 
 - docker build . -t shuffle/multi:12345
-- docker run --name multi -d -p 8300:5000 -e NODE_PORT=5000 -e APP_VERSION=12345 shuffle/multi:12345 
+- docker run --name multi -d -p 8300:3000 -e NODE_PORT=3000 -e APP_VERSION=12345 shuffle/multi:12345 
   - localhost:8300
   - docker rm multi -f
 

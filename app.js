@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Load environment related variables
 global.config = require('./config/config').config;
-
+console.log(config)
 app.use('/', indexRouter);
 
 // catch 404 and forward to error handler
