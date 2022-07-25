@@ -18,7 +18,7 @@ https://expressjs.com/en/starter/generator.html
   - localhost:8300
   - docker rm multi -f
 
-## Steps
+## Steps in Github actions
 
 - Lint
   - eslint
@@ -27,8 +27,6 @@ https://expressjs.com/en/starter/generator.html
     - git tag -a v1.0.1 && git push origin v1.0.1
 - Generate install info
     - step 'helpful'
-- Install image
+- Install image in heroku
 - Test endpoint /health (200)
 
-
-f74a6665-e621-4709-97fe-5331b8e10169

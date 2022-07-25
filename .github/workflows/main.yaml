@@ -64,11 +64,6 @@ jobs:
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/multi:${{ env.RELEASE_VERSION }}
     - name: helpful
       run: |
-        echo "docker run \
-              -d \
-              -p 8300:5000 \
-              -e NODE_PORT=5000 \
-              -e APP_VERSION=${{ env.RELEASE_VERSION }} \
-              shuffle/multi:${{ env.RELEASE_VERSION }}"
+        echo "docker run --name multi -d -p 8300:5000 -e NODE_PORT=5000 -e APP_VERSION=${{ env.RELEASE_VERSION }} shuffle/multi:${{ env.RELEASE_VERSION }}"
     
  
