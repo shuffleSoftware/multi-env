@@ -13,7 +13,7 @@ function main(req, res, next) {
   res.render('pages/icons', {
     title: 'icons',
     env: config.env,
-    app_version: config.app_version
+    app_version: config.app_version,
   });
 }
 

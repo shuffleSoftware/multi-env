@@ -13,7 +13,7 @@ function main(req, res, next) {
   res.render('pages/sign-up', {
     title: 'sign-up',
     env: config.env,
-    app_version: config.app_version
+    app_version: config.app_version,
   });
 }
 
