@@ -23,6 +23,7 @@ https://expressjs.com/en/starter/generator.html
   - eslint
     - npx eslint . (during local development)
 - Docker build && docker push
+    - git tag -a v1.0.1 && git push origin v1.0.1
 - Install image
 - Test endpoint /health (200)
 
