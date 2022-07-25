@@ -19,6 +19,7 @@ router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Express',
     env: config.env,
+    app_version: config.app_version,
   });
 });
 

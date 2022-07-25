@@ -13,7 +13,8 @@ RUN npm install
 # RUN npm ci --only=production
 
 
-ENV NODE_PORT=3000
+ENV NODE_PORT=5000
+ENV APP_VERSION=1
 # Bundle app source
 COPY . .
 
