@@ -1,0 +1,41 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: 'testing/**'
+  pull_request:
+    branches: ["main"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+
+  testEndpoints:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+      - name: development
+        run: |
+          ls
+
+# dev -> https://desp-continuo-211131750-08.herokuapp.com/health
+# prd -> https://prod-211131750-08.herokuapp.com/health
+# ENDPOINTS=('billing' 'health' 'icons' 'map' 'notifications' 'profile' 'rtl' 'sign-in' 'sign-up' 'tables' 'template' 'typography' 'virtual-reality')
+# for endpoint in "${ENDPOINTS[@]}"
+# do
+#   curl_status=`curl --silent --connect-timeout 8 --output /dev/null https://prod-211131750-08.herokuapp.com/$endpoint -I -w "%{http_code}\n"`
+#   echo "$endpoint got $curl_status"
+# done
+
+
+
+
+
+
