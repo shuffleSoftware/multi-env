@@ -27,7 +27,7 @@ https://expressjs.com/en/starter/generator.html
     - git tag -a v1.0.1 && git push origin v1.0.1
 - Generate install info
     - step 'helpful'
-- Install image in heroku
+- Install image in heroku (en la parte inferior izquierda del footer se muestra [entorno|versión])
   - dev -> https://desp-continuo-211131750-08.herokuapp.com
   - prod -> https://prod-211131750-08.herokuapp.com
 - Test endpoint /health (200)
