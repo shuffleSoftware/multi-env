@@ -20,17 +20,24 @@ jobs:
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v2
+
+        # Exclude /billing since it requires production environment
       - name: development
         run: |
           for endpoint in $(ls ./routes/pages)
+          # start for
           do
-            curl_status=`curl --silent --connect-timeout 8 --output /dev/null https://desp-continuo-211131750-08.herokuapp.com/$endpoint -I -w "%{http_code}\n"`
-            if test $curl_status -ne 200; then
-                echo "$curl_status - https://desp-continuo-211131750-08.herokuapp.com/$endpoint" 
-                exit 1
-            else
-                echo "$curl_status - https://desp-continuo-211131750-08.herokuapp.com/$endpoint"
-            fi
+              # skip billing in dev
+              if [ "$endpoint" != "billing" ]; then
+                curl_status=`curl --silent --connect-timeout 8 --output /dev/null https://desp-continuo-211131750-08.herokuapp.com/$endpoint -I -w "%{http_code}\n"`
+                  if test $curl_status -ne 200; then
+                      echo "$curl_status - https://desp-continuo-211131750-08.herokuapp.com/$endpoint" 
+                      exit 1
+                  else
+                      echo "$curl_status - https://desp-continuo-211131750-08.herokuapp.com/$endpoint"
+                  fi # end if $curl_status -ne 200
+              fi # end if $endpoint
+          # end for
           done
       - name: production
         run: |
