@@ -28,8 +28,10 @@ https://expressjs.com/en/starter/generator.html
 - Generate install info
     - step 'helpful'
 - Install image in heroku
+  - dev -> https://desp-continuo-211131750-08.herokuapp.com
+  - prod -> https://prod-211131750-08.herokuapp.com
 - Test endpoint /health (200)
-
+  - https://github.com/shuffleSoftware/multi-env/blob/main/.github/workflows/healthchecks.yaml
 
 
 #### Scenarios
