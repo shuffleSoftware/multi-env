@@ -67,7 +67,7 @@ jobs:
     runs-on: ubunt-latest
     if: github.event_name == 'pull_request'
     env:
-      RELASE_VERSION: ${{ env.RELEASE_VERSION }}
+      RELEASE_VERSION: ${{ env.RELEASE_VERSION }}
     name: Deploy
     steps:
       - uses: actions/github-script@v6
