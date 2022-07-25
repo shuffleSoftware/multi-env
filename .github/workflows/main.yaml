@@ -78,6 +78,7 @@ jobs:
           heroku_email: "shufflesoftware@gmail.com"
           # healthcheck: "https://desp-continuo-211131750-08.herokuapp.com/health"
         env:
+          NODE_ENV: 'development'
           NODE_PORT: 5000
           APP_VERSION: ${{ env.RELEASE_VERSION }}
 
