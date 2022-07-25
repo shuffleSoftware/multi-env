@@ -68,8 +68,6 @@ jobs:
     
   deploy-dev:
     runs-on: ubuntu-latest
-    env:
-      RELEASE_VERSION: ${{ env.RELEASE_VERSION }} # TODO
     needs: ['build']
     steps:
       - uses: actions/checkout@v2
