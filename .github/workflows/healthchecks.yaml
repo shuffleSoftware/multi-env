@@ -4,11 +4,11 @@ name: Test URLS
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
+  # Triggers the workflow on push or pull request events but only for the "testgf-multi-env" branch
   push:
-    branches: 'testing/**'
+    branches: 'testgf-multi-env'
   pull_request:
-    branches: ["main"]
+    branches: ["testgf-multi-env"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
